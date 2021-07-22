@@ -15,7 +15,6 @@ public class ValidationResponse {
 
 	private final int status;
 	private final String message;
-	private String stackTrace;
 	private List<ValidationError> errors;
 
 	@Getter
