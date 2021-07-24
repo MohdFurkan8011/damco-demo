@@ -9,12 +9,21 @@
 
 
 
+#### Lombok Setting
+
+Project Lombok is a java library that automatically plugs into your editor and build tools, spicing up your java.
+Never write another getter or equals method again, with one annotation your class has a fully featured builder, Automate your logging variables, and much more.
+
+`If you do not have lombok enable in your IDE please refer to this link to install lombok ----> `
+
+`https://www.baeldung.com/lombok-ide`
+
 
 
 #### Junit
 
-1. I am using MongoRepository interface, and only using using its built in methods, so I do not need to write jUnit for this.
-2. As said, If I am going to write jUnit test case for controller, and controller calls service methods, so We need to write logic for server methods, instead of we should use **Mockito**. So I am using Mock.
+1. I am using MongoRepository interface, and  it has only built in methods in my case, so I do not need to write jUnit for this.
+2. If your target class another class methods, etc. controller calls service methods then we do not need to call service method, just create **Mock** objects for those. So I am using mockito in my test cases.
 
 
 
