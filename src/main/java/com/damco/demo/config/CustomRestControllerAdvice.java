@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 
-import com.damco.demo.exception.ValidationResponse;
+import com.damco.demo.response.exception.ValidationResponse;
 
 @RestControllerAdvice
 public class CustomRestControllerAdvice {

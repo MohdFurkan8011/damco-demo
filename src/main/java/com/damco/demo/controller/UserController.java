@@ -1,6 +1,8 @@
 package com.damco.demo.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -69,17 +71,21 @@ public class UserController {
 	}
 	
 	@DeleteMapping(value = "/{userId}")
-	public ResponseEntity<String> deleteById(@PathVariable("userId") String userId) {
+	public ResponseEntity<Map<String, String>> deleteById(@PathVariable("userId") String userId) {
 		
-		boolean isExists = userService.existsById(userId);
+		boolean 			isExists = userService.existsById(userId);
+		Map<String, String> result = new HashMap<>();
 		
 		if (isExists) {
 			
 			userService.deleteById(userId);
-			return new ResponseEntity<>("User is successfully deleted.", HttpStatus.OK);
+			result.put("message", "User is successfully deleted.");
+			return new ResponseEntity<>(result, HttpStatus.OK);
 		}
-		else 
-			return new ResponseEntity<>("User does not exist for userId : " + userId, HttpStatus.OK);
+		else {
+			result.put("message", "User does not exist for userId :"+userId);
+			return new ResponseEntity<>(result, HttpStatus.OK);
+		}
 			
 	}
 	

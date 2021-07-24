@@ -1,4 +1,4 @@
-package com.damco.demo.exception;
+package com.damco.demo.response.exception;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,14 +13,15 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class ValidationResponse {
 
-	private final int status;
-	private final String message;
-	private List<ValidationError> errors;
+	private final int 				status;
+	private final String 			message;
+	private List<ValidationError> 	errors;
 
 	@Getter
 	@Setter
 	@RequiredArgsConstructor
-	private static class ValidationError {
+	static class ValidationError {
+		
 		private final String field;
 		private final String message;
 	}
