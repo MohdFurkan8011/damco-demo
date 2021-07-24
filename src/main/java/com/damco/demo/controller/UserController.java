@@ -25,6 +25,8 @@ import com.damco.demo.model.User;
 import com.damco.demo.params.UserParam;
 import com.damco.demo.service.UserService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping(value = "user")
 public class UserController {
@@ -33,6 +35,7 @@ public class UserController {
 	private UserService userService;
 	
 	@GetMapping
+	@ApiOperation(value = "View a list of available users")
 	public ResponseEntity<List<UserDTO>> findAll() {
 		
 		List<User> users 		= 	userService.findAll();
@@ -44,6 +47,7 @@ public class UserController {
 	}
 	
 	@PostMapping
+	@ApiOperation(value = "Saves user")
 	public ResponseEntity<UserDTO> save(@RequestBody @Valid UserParam userParam) {
 		
 														// converts userParam to User model then saves and returns
@@ -56,6 +60,7 @@ public class UserController {
 	}
 	
 	@PutMapping(value = "/{userId}")
+	@ApiOperation(value = "Updates user")
 	public ResponseEntity<UserDTO> update(
 			@PathVariable(value = "userId") String 		userId,
 			@RequestBody 	@Valid			UserParam 	userParam) {
@@ -71,6 +76,7 @@ public class UserController {
 	}
 	
 	@DeleteMapping(value = "/{userId}")
+	@ApiOperation(value = "Deletes user")
 	public ResponseEntity<Map<String, String>> deleteById(@PathVariable("userId") String userId) {
 		
 		boolean 			isExists = userService.existsById(userId);
